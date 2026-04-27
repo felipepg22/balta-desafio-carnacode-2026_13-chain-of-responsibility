@@ -32,21 +32,6 @@ namespace DesignPatternChallenge
 
             var expense4 = new ExpenseRequest("Ana Costa", 15000.00m, "Servidor para datacenter", "TI");
             system.ProcessExpense(expense4);
-
-            Console.WriteLine("\n=== PROBLEMAS ===");
-            Console.WriteLine("✗ Lógica condicional profundamente aninhada e complexa");
-            Console.WriteLine("✗ Código duplicado para encaminhamento entre níveis");
-            Console.WriteLine("✗ Adicionar novo nível requer modificar toda estrutura");
-            Console.WriteLine("✗ Difícil alterar ordem ou critérios de aprovação");
-            Console.WriteLine("✗ Não é possível compor diferentes cadeias dinamicamente");
-            Console.WriteLine("✗ Testabilidade comprometida - difícil testar níveis isoladamente");
-            Console.WriteLine("✗ Viola Single Responsibility: uma classe faz tudo");
-
-            // Perguntas para reflexão:
-            // - Como desacoplar os níveis de aprovação?
-            // - Como permitir que cada nível decida se processa ou encaminha?
-            // - Como facilitar adição/remoção de níveis sem modificar código existente?
-            // - Como criar diferentes cadeias de aprovação dinamicamente?
         }
     }
 }
