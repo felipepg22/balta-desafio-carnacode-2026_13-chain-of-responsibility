@@ -1,28 +1,36 @@
 ![CO-1](https://github.com/user-attachments/assets/7b600675-587d-4e1a-9786-2ea50e35d8a7)
 
-## 🥁 CarnaCode 2026 - Desafio 13 - Chain of Responsibility
+## 🥁 CarnaCode 2026 - Challenge 13 - Chain of Responsibility
 
-Oi, eu sou o [seu nome aqui] e este é o espaço onde compartilho minha jornada de aprendizado durante o desafio **CarnaCode 2026**, realizado pelo [balta.io](https://balta.io). 👻
+Hi, I am Felipe Parizzi Galli, and this is the space where I share my learning journey during the **CarnaCode 2026** challenge, hosted by [balta.io](https://balta.io). 👻
 
-Aqui você vai encontrar projetos, exercícios e códigos que estou desenvolvendo durante o desafio. O objetivo é colocar a mão na massa, testar ideias e registrar minha evolução no mundo da tecnologia.
+Here you will find projects, exercises, and code I am building throughout the challenge. The goal is to get hands-on, test ideas, and track my growth in the tech world.
 
-### Sobre este desafio
-No desafio **Chain of Responsibility** eu tive que resolver um problema real implementando o **Design Pattern** em questão.
-Neste processo eu aprendi:
-* ✅ Boas Práticas de Software
-* ✅ Código Limpo
+### About this challenge
+In the **Chain of Responsibility** challenge, I had to solve a real-world problem by implementing this **Design Pattern**.
+In this process, I learned:
+* ✅ Software Best Practices
+* ✅ Clean Code
 * ✅ SOLID
-* ✅ Design Patterns (Padrões de Projeto)
+* ✅ Design Patterns
 
-## Problema
-Uma empresa precisa processar pedidos de reembolso com diferentes níveis de aprovação baseados no valor. 
-O código atual usa condicionais gigantes e está difícil de manter quando novos níveis de aprovação são adicionados.
+## Problem
+A company needs to process reimbursement requests with different approval levels based on amount.
+The current code uses large conditional blocks and is hard to maintain when new approval levels are added.
 
-## Sobre o CarnaCode 2026
-O desafio **CarnaCode 2026** consiste em implementar todos os 23 padrões de projeto (Design Patterns) em cenários reais. Durante os 23 desafios desta jornada, os participantes são submetidos ao aprendizado e prática na idetinficação de códigos não escaláveis e na solução de problemas utilizando padrões de mercado.
+## About CarnaCode 2026
+The **CarnaCode 2026** challenge consists of implementing all 23 design patterns in real-world scenarios. Across the 23 challenges in this journey, participants practice identifying non-scalable code and solving problems with industry-standard patterns.
 
-### eBook - Fundamentos dos Design Patterns
-Minha principal fonte de conhecimento durante o desafio foi o eBook gratuito [Fundamentos dos Design Patterns](https://lp.balta.io/ebook-fundamentos-design-patterns).
+### eBook - Design Pattern Fundamentals
+My main learning source during this challenge was the free eBook [Fundamentos dos Design Patterns](https://lp.balta.io/ebook-fundamentos-design-patterns).
 
-### Veja meu progresso no desafio
-[Incluir link para o repositório central]
+## What was implemented in code (Chain of Responsibility)
+- The monolithic approval flow was replaced with a chain-based flow in `DesignPatternChallenge/src/Services/ExpenseApprovalSystem.cs`.
+- The base handler `Approver` was created in `DesignPatternChallenge/src/Services/Approvers/Approver.cs`, including shared validation methods and next-handler linking.
+- Four concrete handlers were added:
+  - `SupervisorApprover` (`DesignPatternChallenge/src/Services/Approvers/SupervisorApprover.cs`)
+  - `ManagerApprover` (`DesignPatternChallenge/src/Services/Approvers/ManagerApprover.cs`)
+  - `DirectorApprover` (`DesignPatternChallenge/src/Services/Approvers/DirectorApprover.cs`)
+  - `CEOApprover` (`DesignPatternChallenge/src/Services/Approvers/CEOApprover.cs`)
+- `ExpenseApprovalSystem` now builds and executes the chain with `SetNext(...)` and starts processing from the first handler.
+- The previous switch-based alternative implementation (`ExpenseApprovalSystemV2`) was removed because the handler chain now covers the approval flow.
